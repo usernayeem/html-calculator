@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg" href="calculator.svg" />
+    <title>Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background: #e0eafc;
+        background: -webkit-linear-gradient(to left, #cfdef3, #e0eafc);
+        background: linear-gradient(to left, #cfdef3, #e0eafc);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container form {
+        max-width: 76.8rem;
+        height: 45rem;
+        background-color: #3a4452;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+      }
+
+      .container form .display {
+        flex: 1;
+        display: flex;
+        border-radius: 0.8rem;
+        background-color: #ffffff;
+        margin: 1rem;
+      }
+
+      .container form .display input {
+        text-align: right;
+        flex: 1;
+        font-size: 4.5rem;
+        box-shadow: none;
+        color: black;
+        height: 100%;
+        padding: 0.5rem;
+      }
+
+      .container form .buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 1em;
+        padding: 1rem;
+      }
+
+      .container form input {
+        margin: auto;
+        border: 0;
+        outline: 0;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 0.8rem;
+        box-shadow: -0.8rem -0.8rem 1.5rem rgba(255, 255, 255, 0.1),
+          0.5rem 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+        background: transparent;
+        font-size: 2rem;
+        color: #ffffff;
+        cursor: pointer;
+      }
+
+      .container form input:active {
+        transform: scale(0.9);
+        box-shadow: none;
+        color: none;
+        background-color: none;
+      }
+
+      .container form .operator {
+        background-color: #ffa500;
+      }
+
+      .container form .equal {
+        background-color: #ffa500;
+      }
+
+      @media only screen and (max-width: 480px) {
+        .container form {
+          width: 100vw !important;
+          height: 100vh !important;
+          border-radius: 0rem !important;
+        }
+      }
+
+      @media only screen and (max-height: 480px) {
+        .container form {
+          transform: rotate(-90deg);
+          width: 100vh !important;
+          height: 100vw !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="display">
+          <input type="text" name="display" autofocus />
+        </div>
+        <div class="buttons">
+          <input
+            type="button"
+            value="AC"
+            onclick="display.value = '' "
+            class="operator"
+          />
+          <input
+            type="button"
+            value="DE"
+            onclick="display.value = display.value.toString().slice(0, -1) "
+            class="operator"
+          />
+          <input
+            type="button"
+            value="."
+            onclick="display.value += '.' "
+            class="operator"
+          />
+          <input
+            type="button"
+            value="/"
+            onclick="display.value += '/' "
+            class="operator"
+          />
+
+          <input type="button" value="7" onclick="display.value += '7' " />
+          <input type="button" value="8" onclick="display.value += '8' " />
+          <input type="button" value="9" onclick="display.value += '9' " />
+          <input type="button" value="*" onclick="display.value += '*' " />
+
+          <input type="button" value="4" onclick="display.value += '4' " />
+          <input type="button" value="5" onclick="display.value += '5' " />
+          <input type="button" value="6" onclick="display.value += '6' " />
+          <input type="button" value="-" onclick="display.value += '-' " />
+
+          <input type="button" value="1" onclick="display.value += '1' " />
+          <input type="button" value="2" onclick="display.value += '2' " />
+          <input type="button" value="3" onclick="display.value += '3' " />
+          <input type="button" value="+" onclick="display.value += '+' " />
+
+          <input type="button" value="00" onclick="display.value += '00' " />
+          <input type="button" value="0" onclick="display.value += '0' " />
+          <input
+            type="button"
+            value="="
+            onclick="display.value = eval(display.value) "
+            class="equal"
+          />
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
