@@ -7,7 +7,7 @@
 
 ## Demo
 
-https://md5nayeem.github.io/HtmlCalculator/
+https://usernayeem.github.io/HtmlCalculator/
 
 
 ## About
